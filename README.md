@@ -25,7 +25,7 @@ This is a Laravel template with **authentication** (login, signup, logout) and b
    composer create-project laravel/laravel myapp
    cd myapp
 
-2. composer install
-3. Set up your .env file (use .env.example as a guide) and configure your database connection.
-4. php artisan migrate
-5. php artisan serve
+2. ``` composer install
+3. ``` Set up your .env file (use .env.example as a guide) and configure your database connection.
+4.``` php artisan migrate
+5. ``` php artisan serve
