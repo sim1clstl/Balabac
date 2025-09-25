@@ -1,24 +1,20 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PageController;
 
-// Public pages
-Route::get('/', [HomeController::class, 'landing'])->name('landing');
-Route::get('/faqs', [HomeController::class, 'faqs'])->name('faqs');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/', [PageController::class, 'landing'])->name('landing');
+Route::get('/about', [PageController::class, 'about'])->name('about');
+Route::get('/faqs', [PageController::class, 'faqs'])->name('faqs');
+Route::get('/packages', [PageController::class, 'packages'])->name('packages');
+Route::get('/schedule', [PageController::class, 'schedule'])->name('schedule');
 
-// Authentication
-Route::get('/signup', [AuthController::class, 'showSignup'])->name('signup');
-Route::post('/signup', [AuthController::class, 'signup']);
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// Contact form
+Route::get('/contact', [PageController::class, 'contactForm'])->name('contact');
+Route::post('/contact', [PageController::class, 'submitContact'])->name('contact.submit');
 
-// Protected pages
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/calendar', [DashboardController::class, 'calendar'])->name('calendar');
-});
+// Dashboard and auth placeholders
+Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+Route::get('/login', [PageController::class, 'login'])->name('login');
+Route::get('/signup', [PageController::class, 'signup'])->name('signup');
+Route::post('/signup', [PageController::class, 'signupSubmit'])->name('signup.submit');
+Route::post('/login', [PageController::class, 'loginSubmit'])->name('login.submit');

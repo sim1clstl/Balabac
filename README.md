@@ -1,31 +1,30 @@
-# Laravel Auth Template
+# Tourism Agency Laravel Template (Placeholder)
 
-This is a Laravel template with **authentication** (login, signup, logout) and basic public/private pages.
+Simple starter template for a tourism agency website. This is NOT a full Laravel installation — it's a set of files you can copy into a Laravel project.
 
-## Features
-- **Public pages** (no login required):
-  - Landing (`/`)
-  - FAQs (`/faqs`)
-  - About Us (`/about`)
-  - Contact Us (`/contact`)
+## Included Pages
+- Landing page (`/`)
+- About Us (`/about`)
+- FAQs (`/faqs`)
+- Contact Form (`/contact` GET & POST)
+- Packages (`/packages`)
+- Tour Schedule (`/schedule`)
+- Dashboard (`/dashboard`) — admin placeholder
+- Login (`/login`) — placeholder form
+- Signup (`/signup`) — placeholder form
 
-- **Authentication**:
-  - Signup (`/signup`) – create a new account
-  - Login (`/login`) – log in with email & password
-  - Logout (`/logout`) – end session
-  - Passwords are hashed using Laravel’s built-in `Hash`
-
-- **Private pages** (require login):
-  - Dashboard (`/dashboard`)
-  - Calendar (`/calendar`)
-
-## Installation
-1. Create a new Laravel project:
-   bash
+## Quick Start
+1. Create a fresh Laravel project:
+   ```bash
    composer create-project laravel/laravel myapp
    cd myapp
+   ```
+2. Copy files from this template into the Laravel project folders (routes/, app/Http/Controllers/, resources/views/, public/).
+3. Adjust routes/controllers as needed. This template uses plain placeholder forms; no authentication is implemented.
+4. Start server:
+   ```bash
+   php artisan serve
+   ```
 
-2. composer install
-3.  Set up your .env file (use .env.example as a guide) and configure your database connection.
-4. php artisan migrate
-5.  php artisan serve
+## Contact Form
+The contact form POST route is set up (`/contact`) and currently returns a simple thank-you view. Replace with mail logic or DB storage as needed.

@@ -2,29 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>@yield('title', 'App')</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>@yield('title','Tourism Agency')</title>
 </head>
 <body>
-    <nav>
-        <a href="{{ route('landing') }}">Home</a> |
-        <a href="{{ route('faqs') }}">FAQs</a> |
-        <a href="{{ route('about') }}">About</a> |
-        <a href="{{ route('contact') }}">Contact</a> |
-        @auth
-            <a href="{{ route('dashboard') }}">Dashboard</a> |
-            <a href="{{ route('calendar') }}">Calendar</a> |
-            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                @csrf
-                <button type="submit">Logout</button>
-            </form>
-        @else
+    <header>
+        <nav>
+            <a href="{{ route('landing') }}">Home</a> |
+            <a href="{{ route('packages') }}">Packages</a> |
+            <a href="{{ route('schedule') }}">Tour Schedule</a> |
+            <a href="{{ route('faqs') }}">FAQs</a> |
+            <a href="{{ route('about') }}">About</a> |
+            <a href="{{ route('contact') }}">Contact</a> |
             <a href="{{ route('login') }}">Login</a> |
             <a href="{{ route('signup') }}">Signup</a>
-        @endauth
-    </nav>
+        </nav>
+    </header>
     <hr>
-    <div>
+    <main>
         @yield('content')
-    </div>
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; {{ date('Y') }} Tourism Agency</p>
+    </footer>
 </body>
 </html>
