@@ -1,1 +1,0 @@
-<?php echo 'This is a template. Copy files into a real Laravel project.';
