@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role', // admin | partner | customer
     ];
 
     /**
@@ -44,5 +45,34 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /* =========================
+     |  RELATIONSHIPS
+     |=========================*/
+
+    // ✅ Only ONE partner() method
+    public function partner()
+    {
+        return $this->hasOne(\App\Models\Partner::class);
+    }
+
+    /* =========================
+     |  HELPERS
+     |=========================*/
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isPartner(): bool
+    {
+        return $this->role === 'partner';
+    }
+
+    public function isCustomer(): bool
+    {
+        return $this->role === 'customer';
     }
 }

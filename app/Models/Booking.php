@@ -17,13 +17,17 @@ class Booking extends Model
         'amount',
         'status',
         'payment_reference',
+        'subtotal',
+        'discount_amount',
+        'total_amount',
+        'promo_code_id'
     ];
 
     protected $casts = [
         'booking_date' => 'date',
         'amount' => 'decimal:2',
     ];
-
+    
     public function package(): BelongsTo {
         return $this->belongsTo(Package::class);
     }
